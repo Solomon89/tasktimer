@@ -1,0 +1,9 @@
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.csprojResolveAssemblyReference.cache
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.Form1.resources
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.Properties.Resources.resources
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.csproj.GenerateResource.Cache
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\bin\Debug\CalculatorOfWorkingTime.exe
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\bin\Debug\CalculatorOfWorkingTime.pdb
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.exe
+c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.pdb
+C:\Users\solom_000\Documents\Visual Studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.FormToSavePlase.resources
