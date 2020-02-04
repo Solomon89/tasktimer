@@ -7,3 +7,12 @@ c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime
 c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.exe
 c:\users\solom_000\documents\visual studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.pdb
 C:\Users\solom_000\Documents\Visual Studio 2012\Projects\CalculatorOfWorkingTime\CalculatorOfWorkingTime\obj\Debug\CalculatorOfWorkingTime.FormToSavePlase.resources
+C:\Users\solom\source\repos\Solomon89\tasktimer\bin\Debug\CalculatorOfWorkingTime.exe
+C:\Users\solom\source\repos\Solomon89\tasktimer\bin\Debug\CalculatorOfWorkingTime.pdb
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.csprojAssemblyReference.cache
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.Form1.resources
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.FormToSavePlase.resources
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.Properties.Resources.resources
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.csproj.GenerateResource.cache
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.exe
+C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.pdb

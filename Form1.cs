@@ -90,7 +90,10 @@ namespace CalculatorOfWorkingTime
                             string timeToProgect = st;
                             st = sr.ReadLine();
                             bool finished = Convert.ToBoolean(st);
-                            progect CurrentProject = new progect(nameofProject, StartDate, timeToProgect,id,finished);
+                            string Interesing = sr.ReadLine();
+                            string Hard = sr.ReadLine();
+                            string Depressing = sr.ReadLine();
+                            progect CurrentProject = new progect(nameofProject, StartDate, timeToProgect,id,finished,Interesing,Hard,Depressing);
                             ListOfProgects.Add(CurrentProject);
                             if (!CurrentProject.Finished)
                             {
@@ -109,9 +112,21 @@ namespace CalculatorOfWorkingTime
         {
             foreach (Control item in Controls)
             {
-                if (item.Name.Contains("TB"))
+                if (item.Name.Contains("TB_NameOfProgect"))
                 {
                     item.Text = CurrentProject.ProjectName;
+                }
+                if (item.Name.Contains("TB_Interesing"))
+                {
+                    item.Text = CurrentProject.Interesing;
+                }
+                if (item.Name.Contains("TB_Hard"))
+                {
+                    item.Text = CurrentProject.Hard;
+                }
+                if (item.Name.Contains("TB_Depressing"))
+                {
+                    item.Text = CurrentProject.Depressing;
                 }
                 if (item.Name.Contains("LB"))
                 {
@@ -130,7 +145,7 @@ namespace CalculatorOfWorkingTime
             if (timerOn)
             {
                 button1.Text = "Выключить";
-                this.BackColor = Color.Aqua;
+                this.BackColor = Color.FromArgb(171, 177, 167);
                 LastOn = Convert.ToDateTime(label1.Text);
             }
             else
@@ -225,42 +240,93 @@ namespace CalculatorOfWorkingTime
         }
         private List<Control> GetExampleOfControls(int id,bool EnabledButton)
         {
+            int left = 0;
             hightMultiplaer++;
             int top = hightMultiplaer * 25;
             List<Control> ReturnedControls = new List<Control>();
-            TextBox TB_NameOfProgect = new TextBox();
-            TB_NameOfProgect.Name = "TB_NameOfProgect" + id.ToString();
-            TB_NameOfProgect.Width = 240;
-            TB_NameOfProgect.Top = top;
-            TB_NameOfProgect.Enabled = !EnabledButton;
+            TextBox TB_NameOfProgect = new TextBox
+            {
+                Name = "TB_NameOfProgect" + id.ToString(),
+                Width = 400,
+                Top = top,
+               
+            };
             TB_NameOfProgect.LostFocus += TB_NameOfProgect_LostFocus;
             TB_NameOfProgect.KeyUp += TB_NameOfProgect_KeyUp;
             ReturnedControls.Add(TB_NameOfProgect);
+
+            left += TB_NameOfProgect.Width + 10;
+
+            TextBox TB_Interesing = new TextBox
+            {
+                Name = "TB_Interesing_" + id.ToString(),
+                Width = 60,
+                Top = top,
+                
+                Left = left
+            };
+            TB_Interesing.LostFocus += LostFocusTB;
+            ReturnedControls.Add(TB_Interesing);
+
+            left += TB_Interesing.Width + 10;
+
+            TextBox TB_Hard = new TextBox
+            {
+                Name = "TB_Hard_" + id.ToString(),
+                Width = 60,
+                Top = top,
+               
+                Left = left
+            };
+            TB_Hard.LostFocus += LostFocusTB;
+            ReturnedControls.Add(TB_Hard);
+
+            left += TB_Hard.Width + 10;
+
+            TextBox TB_Depressing = new TextBox
+            {
+                Name = "TB_Depressing_" + id.ToString(),
+                Width = 60,
+                Top = top,
+                
+                Left = left
+            };
+            TB_Depressing.LostFocus += LostFocusTB;
+            ReturnedControls.Add(TB_Depressing);
+
+            left += TB_Depressing.Width + 10;
 
             Label LB_Timer = new Label();
             LB_Timer.Name = "LB_Timer" + id.ToString();
             LB_Timer.Text = "00:00:0000";
             LB_Timer.Top = top;
-            LB_Timer.Left = 250;
+            LB_Timer.Left = left;
+
             ReturnedControls.Add(LB_Timer);
+
+            left += LB_Timer.Width + 10;
 
             Button BT_StartStopProgect = new Button();
             BT_StartStopProgect.Text = "Запустить проект";
             BT_StartStopProgect.Click += new EventHandler(BT_Click);
-            BT_StartStopProgect.Left = 370;
+            BT_StartStopProgect.Left = left;
             BT_StartStopProgect.Name = "BT_StartStopProgect" + id.ToString();
             BT_StartStopProgect.Top = top;
             BT_StartStopProgect.Enabled = EnabledButton;
             ReturnedControls.Add(BT_StartStopProgect);
 
+            left += BT_StartStopProgect.Width + 10;
+
             Button BT_Finish = new Button();
             BT_Finish.Text = "Закончить";
             BT_Finish.Click += new EventHandler(BT_Finish_Click);
-            BT_Finish.Left = 450;
+            BT_Finish.Left = left;
             BT_Finish.Name = "BT_Finish" + id.ToString();
             BT_Finish.Top = top;
             BT_Finish.Enabled = EnabledButton;
             ReturnedControls.Add(BT_Finish);
+
+            left += BT_Finish.Width + 10;
 
             panel1.Height += 25;
             this.Height += 25;
@@ -330,15 +396,45 @@ namespace CalculatorOfWorkingTime
             FTSP.ShowDialog();
             return FTSP.SavePath;
         }
-        
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
+        private void LostFocusTB(object sender, EventArgs e)
+        {
+            TextBox CurrentTB = (TextBox)sender;
+            int startType = CurrentTB.Name.IndexOf("_");
+            int endType = CurrentTB.Name.IndexOf("_", startType+1);
+            string type = CurrentTB.Name.Substring(startType+1, endType - startType-1);
+            int id = int.Parse(CurrentTB.Name.Replace("TB_" + type + "_", ""))-1;
+            ListOfProgects[id].GetType().GetProperty(type).SetValue(ListOfProgects[id], CurrentTB.Text,null);
+ 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class progect
     {
         public string ProjectName { get; set; }
         public bool Switch { get; set; }
         public DateTime DateOfStart { get; set; }
+        public string Interesing { get; set; }
+        public string Hard { get; set; }
+        public string Depressing { get; set; }
         public int Seconds { get; set; }
         public int Minutes { get; set; }
         public int Hours { get; set; }
@@ -346,7 +442,7 @@ namespace CalculatorOfWorkingTime
         public int idOfConttrols { get; set; }
         public bool Finished { get; set; }
 
-        public progect(String _Name, DateTime _DateOfStart,int _idOfControls)
+        public progect(string _Name, DateTime _DateOfStart,int _idOfControls)
         {
             this.ProjectName = _Name;
             this.DateOfStart = _DateOfStart;
@@ -356,9 +452,9 @@ namespace CalculatorOfWorkingTime
             this.Hours = 0;
             this.Days = 0;
             this.Finished = false;
-
+            
         }
-        public progect(String _Name, DateTime _DateOfStart, string _DateOfProgect, int _idOfControl, bool _Finished)
+        public progect(string _Name, DateTime _DateOfStart, string _DateOfProgect, int _idOfControl, bool _Finished, string Interesing, string Hard, string Depressing)
         {
             this.ProjectName = _Name;
             this.DateOfStart = _DateOfStart;
@@ -368,6 +464,9 @@ namespace CalculatorOfWorkingTime
             this.Hours = Convert.ToInt32(_DateOfProgect.Substring(4, 2));
             this.Days = Convert.ToInt32(_DateOfProgect.Substring(0, 3));
             this.Finished = _Finished;
+            this.Interesing = Interesing;
+            this.Hard = Hard;
+            this.Depressing = Depressing;
 
         }
         public string newSecond()
@@ -397,6 +496,9 @@ namespace CalculatorOfWorkingTime
             returnStringOfProgect += DateOfStart.ToString() + "\r\n";
             returnStringOfProgect += reternTimeString() + "\r\n";
             returnStringOfProgect += Finished + "\r\n";
+            returnStringOfProgect += Interesing + "\r\n";
+            returnStringOfProgect += Hard + "\r\n";
+            returnStringOfProgect += Depressing + "\r\n";
             return returnStringOfProgect;
         }
         public string reternTimeString()
