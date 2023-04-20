@@ -16,3 +16,13 @@ C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTim
 C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.csproj.GenerateResource.cache
 C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.exe
 C:\Users\solom\source\repos\Solomon89\tasktimer\obj\Debug\CalculatorOfWorkingTime.pdb
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\bin\Debug\CalculatorOfWorkingTime.exe
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\bin\Debug\CalculatorOfWorkingTime.pdb
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.csproj.AssemblyReference.cache
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.Form1.resources
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.FormToSavePlase.resources
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.Properties.Resources.resources
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.csproj.GenerateResource.cache
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.csproj.CoreCompileInputs.cache
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.exe
+C:\Users\BGDMSO\Documents\TaskTimer\tasktimer\obj\Debug\CalculatorOfWorkingTime.pdb

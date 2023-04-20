@@ -27,7 +27,7 @@ namespace CalculatorOfWorkingTime
             ListOfProgects = new List<progect>();
             label1.Text = new DateTime().TimeOfDay.ToString();
             plaseToSave = LoadPlaseOfPath();
-            LoadToDayTime(DateTime.Now.Date.ToString().Replace(".", "-").Substring(0, 10));
+            LoadToDayTime(DateTime.Now.Date.ToString("yyyy-MM-dd"));
         }
         private string LoadPlaseOfPath()
         {
@@ -56,7 +56,7 @@ namespace CalculatorOfWorkingTime
         }
         private void LoadToDayTime(string Date)
         {
-            string file = plaseToSave + Date + ".tst";
+            string file = plaseToSave +"/"+ Date + ".tst";
             if (File.Exists(file))
             {
                 using (StreamReader sr = File.OpenText(file))
@@ -216,8 +216,8 @@ namespace CalculatorOfWorkingTime
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             string save = LabelMeaning.ToString();
-            string fileName = DateTime.Now.Date.ToString().Replace(".", "-").Substring(0, 10);
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter( plaseToSave + fileName + ".tst"))
+            string fileName = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter( plaseToSave+ "/" + fileName + ".tst"))
             {
                 file.Write(save);
             }
@@ -257,18 +257,8 @@ namespace CalculatorOfWorkingTime
 
             left += TB_NameOfProgect.Width + 10;
 
-            TextBox TB_Interesing = new TextBox
-            {
-                Name = "TB_Interesing_" + id.ToString(),
-                Width = 60,
-                Top = top,
-                
-                Left = left
-            };
-            TB_Interesing.LostFocus += LostFocusTB;
-            ReturnedControls.Add(TB_Interesing);
+           
 
-            left += TB_Interesing.Width + 10;
 
             TextBox TB_Hard = new TextBox
             {
@@ -283,18 +273,9 @@ namespace CalculatorOfWorkingTime
 
             left += TB_Hard.Width + 10;
 
-            TextBox TB_Depressing = new TextBox
-            {
-                Name = "TB_Depressing_" + id.ToString(),
-                Width = 60,
-                Top = top,
-                
-                Left = left
-            };
-            TB_Depressing.LostFocus += LostFocusTB;
-            ReturnedControls.Add(TB_Depressing);
+           
 
-            left += TB_Depressing.Width + 10;
+
 
             Label LB_Timer = new Label();
             LB_Timer.Name = "LB_Timer" + id.ToString();
@@ -354,16 +335,16 @@ namespace CalculatorOfWorkingTime
             TextBox TB = (TextBox)sender;
             int idControl = Convert.ToInt32(TB.Name.Replace("TB_NameOfProgect", ""));
             Control[] s = panel1.Controls.Find("BT_StartStopProgect" + idControl, true);
-            s[0].Enabled = (TB.Text != "") ? true : false;
+            //s[0].Enabled = (TB.Text != "") ? true : false;
             s = panel1.Controls.Find("BT_Finish" + idControl, true);
-            s[0].Enabled = (TB.Text != "") ? true : false;
+            //s[0].Enabled = (TB.Text != "") ? true : false;
         }
         private void TB_NameOfProgect_LostFocus(object sender, EventArgs e)
         {
             TextBox TB = (TextBox)sender;
             if (TB.Text != "")
             {
-                TB.Enabled = false;
+                //TB.Enabled = false;
                 int idControl = Convert.ToInt32(TB.Name.Replace("TB_NameOfProgect", ""));
                 CreateNewProgect(TB.Text,idControl); 
             }
@@ -377,9 +358,11 @@ namespace CalculatorOfWorkingTime
         private void BT_Click(object sender, EventArgs e)
         {
             Button bt = (sender as Button);
+            swichOffAllTimers();
             switchTimer(bt);
 
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             id++;
